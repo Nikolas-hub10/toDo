@@ -32,12 +32,36 @@ const BotaoConclui = () => {
     botaoConclui.classList.add('check-button');
     botaoConclui.innerText = 'concluir'
 
-    botaoConclui.addEventListener('click', () => {
-        console.log('fui clicado');
-
-    });
+    botaoConclui.addEventListener('click', concluirTarefa);
     return botaoConclui;
 };
+
+const concluirTarefa = (evento) => {
+    const eventoAcionado = evento.target;
+
+    const tarefaCompleta = eventoAcionado.parentElement;
+
+    tarefaCompleta.classList.toggle('done');
+
+
+};
+
+const BotaoDeleta = () => {
+    const botaoDeleta = document.createElement('button');
+
+    botaoDeleta.innerText = 'deletar';
+    botaoDeleta.addEventListener('click', deletarTarefa);
+
+    return botaoDeleta;
+}
+
+const deletarTarefa = (evento) => {
+    const deletaEvento = evento.target;
+
+    const tarefaDeletada = deletaEvento.parentElement;
+    tarefaDeletada.remove();
+
+}
 
 // `createElement()` -> Cria um novo elemento.
 // `appendeChild()` -> Insere um elemento filho no elemento pai.
